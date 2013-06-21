@@ -1,6 +1,6 @@
-# OpenShift Tomcat Community Cartridge
+# OpenShift TomEE Community Cartridge
 
-The `tomcat` cartridge provides Tomcat on OpenShift via a manual tomcat install.
+The `tomee` cartridge provides Tomcat on OpenShift via a manual tomee install.
 
 This cartridge has special functionality to enable integration with OpenShift and with other
 cartridges. See the [Cartridge Integrations](#cartridge-integrations) and
@@ -137,12 +137,9 @@ Adding marker files to `.openshift/markers` will have the following effects:
 ## Download Tomcat 6 and Tomcat 7 and install them in `/opt/apache-tomcat-X.Y`
 
     $ cd /opt
-    $ wget http://download.nextag.com/apache/tomcat/tomcat-7/v7.0.41/bin/apache-tomcat-7.0.41.tar.gz
-    $ tar xvzf apache-tomcat-7.0.41.tar.gz
-    $ ln -s /opt/apache-tomcat-7.0.41 /opt/apache-tomcat-7.0
-    $ wget http://psg.mtu.edu/pub/apache/tomcat/tomcat-6/v6.0.37/bin/apache-tomcat-6.0.37.tar.gz
-    $ tar xvzf apache-tomcat-6.0.37.tar.gz
-    $ ln -s /opt/apache-tomcat-6.0.37 /opt/apache-tomcat-6.0
+    $ wget http://repo1.maven.org/maven2/org/apache/openejb/apache-tomee/1.5.2/apache-tomee-1.5.2-jaxrs.tar.gz
+    $ tar xvzf apache-tomee-1.5.2-jaxrs.tar.gz
+    $ ln -s /opt/apache-tomee-jaxrs-1.5.2 /opt/apache-tomee-1.5
 
 ## Test as a download cartridge
 
@@ -150,7 +147,7 @@ Make sure this option is enable the the broker config.
 
     DOWNLOAD_CARTRIDGES_ENABLED="true"
 
-Then create a cartridge with this URL: <http://cartreflect-claytondev.rhcloud.com/reflect?github=AtosWorldline/openshift-cartridge-tomcat-community>
+Then create a cartridge with this URL: <http://cartreflect-claytondev.rhcloud.com/reflect?github=Filirom1/openshift-cartridge-tomee>
 
 ## Install as a RPM
 

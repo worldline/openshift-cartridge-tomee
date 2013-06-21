@@ -1,7 +1,7 @@
 %global cartridgedir %{_libexecdir}/openshift/cartridges/v2/tomcat
 
-Summary:       Provides TOMCAT support
-Name:          openshift-origin-cartridge-tomcat
+Summary:       Provides TOMEE support
+Name:          openshift-origin-cartridge-tomee
 Version:       0.6.6
 Release:       1%{?dist}
 Group:         Development/Languages
