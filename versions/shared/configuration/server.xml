@@ -69,8 +69,8 @@
          APR (HTTP/AJP) Connector: /docs/apr.html
          Define a non-SSL HTTP/1.1 Connector on port 8080
     -->
-    <Connector address="${OPENSHIFT_TOMCAT_IP}"
-               port="${OPENSHIFT_TOMCAT_HTTP_PORT}"
+    <Connector address="${OPENSHIFT_TOMEE_IP}"
+               port="${OPENSHIFT_TOMEE_HTTP_PORT}"
                protocol="HTTP/1.1"
                connectionTimeout="20000"
                redirectPort="8443"/>

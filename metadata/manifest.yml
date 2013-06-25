@@ -19,7 +19,7 @@ Website: http://tomcat.apache.org/
 Help-Topics:
   "Developer Center": https://www.openshift.com/developers
 Cart-Data:
-  - Key: OPENSHIFT_TOMCAT_LOG_DIR
+  - Key: OPENSHIFT_TOMEE_LOG_DIR
     Type: environment
     Description: "Directory to store application log files."
   - Key: OPENSHIFT_TMP_DIR
@@ -28,10 +28,10 @@ Cart-Data:
   - Key: OPENSHIFT_REPO_DIR
     Type: environment
     Description: "Application root directory where application files reside. This directory is reset every time you do a git-push"
-  - Key: OPENSHIFT_TOMCAT_HTTP_PORT
+  - Key: OPENSHIFT_TOMEE_HTTP_PORT
     Type: environment
     Description: "Internal port to which the web-framework binds to."
-  - Key: OPENSHIFT_TOMCAT_IP
+  - Key: OPENSHIFT_TOMEE_IP
     Type: environment
     Description: "Internal IP to which the web-framework binds to."
   - Key: OPENSHIFT_APP_DNS

@@ -78,9 +78,9 @@ automatically deployed into the server runtime.
 The Tomcat cartridge provides several environment variables to reference for ease
 of use:
 
-    OPENSHIFT_TOMCAT_IP          The IP address used to bind TOMCAT
-    OPENSHIFT_TOMCAT_HTTP_PORT   The TOMCAT listening port
-    OPENSHIFT_TOMCAT_JPDA_PORT   The TOMCAT JPDA listening port
+    OPENSHIFT_TOMEE_IP          The IP address used to bind TOMCAT
+    OPENSHIFT_TOMEE_HTTP_PORT   The TOMCAT listening port
+    OPENSHIFT_TOMEE_JPDA_PORT   The TOMCAT JPDA listening port
 
 For more information about environment variables, consult the
 [OpenShift Application Author Guide](https://github.com/openshift/origin-server/blob/master/node/README.writing_applications.md).
@@ -96,8 +96,8 @@ For the following configuration files:
 Ant-style environment replacements are supported for all `OPENSHIFT_`-prefixed environment variables in the application. For
 example, the following replacements are valid in `server.xml`:
 
-      <Connector address="${OPENSHIFT_TOMCAT_IP}"
-                 port="${OPENSHIFT_TOMCAT_HTTP_PORT}"
+      <Connector address="${OPENSHIFT_TOMEE_IP}"
+                 port="${OPENSHIFT_TOMEE_HTTP_PORT}"
                  protocol="HTTP/1.1"
                  connectionTimeout="20000"
                  redirectPort="8443" />

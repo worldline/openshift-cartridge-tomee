@@ -2,7 +2,7 @@
 
 Summary:       Provides TOMEE support
 Name:          openshift-origin-cartridge-tomee
-Version:       0.6.11
+Version:       0.6.14
 Release:       1%{?dist}
 Group:         Development/Languages
 License:       ASL 2.0
@@ -66,6 +66,15 @@ alternatives --set maven-3.0 /usr/share/maven
 %doc %{cartridgedir}/LICENSE
 
 %changelog
+* Tue Jun 25 2013 Filirom1 <Filirom1@gmail.com> 0.6.14-1
+- rename TOMCAT in TOMEE (Filirom1@gmail.com)
+
+* Tue Jun 25 2013 Filirom1 <Filirom1@gmail.com> 0.6.13-1
+- s/SYSTEM_TOMCAT/SYSTEM_TOMEE/g (Filirom1@gmail.com)
+
+* Tue Jun 25 2013 Filirom1 <Filirom1@gmail.com> 0.6.12-1
+- s/OPENSHIFT_TOMCAT/OPENSHIFT_TOMEE/g (Filirom1@gmail.com)
+
 * Tue Jun 25 2013 Filirom1 <Filirom1@gmail.com> 0.6.11-1
 - fix cartridge vendor (Filirom1@gmail.com)
 
@@ -104,7 +113,7 @@ alternatives --set maven-3.0 /usr/share/maven
   [0.6.1-1]. (filirom1@gmail.com)
 - Initialized to use tito. (filirom1@gmail.com)
 - fix JDK path (filirom1@gmail.com)
-- update SYSTEM_TOMCAT_DIR (filirom1@gmail.com)
+- update SYSTEM_TOMEE_DIR (filirom1@gmail.com)
 - dos2unix (filirom1@gmail.com)
 - chmod +x (filirom1@gmail.com)
 - 'redhat' is reserved.: 'Cartridge-Vendor' (filirom1@gmail.com)
