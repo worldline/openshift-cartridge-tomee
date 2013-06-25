@@ -158,11 +158,11 @@ Build the RPM.
     $ tito tag
     $ tito build --rpm --test
     ...
-    Successfully built: /tmp/tito/openshift-origin-cartridge-tomcat-0.6.2-1.git.0.bed44cb.el6.src.rpm /tmp/tito/noarch/openshift-origin-cartridge-tomcat-0.6.2-1.git.0.bed44cb.el6.noarch.rpm
+    Successfully built: /tmp/tito/openshift-origin-cartridge-tomee-0.6.7-1.git.0.3ad7ce3.el6.src.rpm /tmp/tito/noarch/openshift-origin-cartridge-tomee-0.6.7-1.git.0.3ad7ce3.el6.noarch.rpm
 
 On the node
 
-    $ yum install /tmp/tito/noarch/openshift-origin-cartridge-tomcat-0.6.2-1.git.0.bed44cb.el6.noarch.rpm
+    $ yum install /tmp/tito/noarch/openshift-origin-cartridge-tomee-0.6.7-1.git.0.3ad7ce3.el6.noarch.rpm
 
 On the broker
 
