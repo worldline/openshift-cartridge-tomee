@@ -1,8 +1,8 @@
-%global cartridgedir %{_libexecdir}/openshift/cartridges/v2/tomcat
+%global cartridgedir %{_libexecdir}/openshift/cartridges/v2/tomee
 
 Summary:       Provides TOMEE support
 Name:          openshift-origin-cartridge-tomee
-Version:       0.6.7
+Version:       0.6.10
 Release:       1%{?dist}
 Group:         Development/Languages
 License:       ASL 2.0
@@ -12,8 +12,6 @@ Requires:      rubygem(openshift-origin-node)
 Requires:      openshift-origin-node-util
 Requires:      lsof
 Requires:      bc
-Requires:      java-1.6.0-openjdk
-Requires:      java-1.6.0-openjdk-devel
 Requires:      java-1.7.0-openjdk
 Requires:      java-1.7.0-openjdk-devel
 %if 0%{?rhel}
@@ -26,7 +24,7 @@ BuildRequires: jpackage-utils
 BuildArch:     noarch
 
 %description
-Provides TOMCAT support to OpenShift. (Cartridge Format V2)
+Provides TomeEE support to OpenShift. (Cartridge Format V2)
 
 %prep
 %setup -q
@@ -68,6 +66,17 @@ alternatives --set maven-3.0 /usr/share/maven
 %doc %{cartridgedir}/LICENSE
 
 %changelog
+* Tue Jun 25 2013 Filirom1 <Filirom1@gmail.com> 0.6.10-1
+- fix manifest.yml (Filirom1@gmail.com)
+
+* Tue Jun 25 2013 Filirom1 <Filirom1@gmail.com> 0.6.9-1
+- fix vendor_name does not match pattern /\A[a-z][a-z0-9_]*\z/.: 'Cartridge-
+  Vendor' (Filirom1@gmail.com)
+
+* Tue Jun 25 2013 Filirom1 <Filirom1@gmail.com> 0.6.8-1
+- fix spec file (Filirom1@gmail.com)
+- update the README (Filirom1@gmail.com)
+
 * Tue Jun 25 2013 Filirom1 <Filirom1@gmail.com> 0.6.7-1
 - new package built with tito
 

@@ -1,6 +1,6 @@
-Name: tomcat
+Name: tomee
 Cartridge-Short-Name: TOMEE
-Cartridge-Vendor: AtosWorldline
+Cartridge-Vendor: atosworldline
 Cartridge-Version: 0.0.1
 Display-Name: Tomee 1.5
 Description: "Apache TomEE 1.5 is an open source software implementation of the Java Servlet and JavaServer Pages technologies"
