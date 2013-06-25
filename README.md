@@ -1,6 +1,6 @@
 # OpenShift TomEE Community Cartridge
 
-The `tomee` cartridge provides Tomcat on OpenShift via a manual tomee install.
+The `tomee` cartridge provides TomEE on OpenShift via a manual tomee install.
 
 This cartridge has special functionality to enable integration with OpenShift and with other
 cartridges. See the [Cartridge Integrations](#cartridge-integrations) and
@@ -26,7 +26,7 @@ Note: Every time you push, everything in your remote repo directory is recreated
       The OpenShift data directory is accessible via an environment variable `OPENSHIFT_DATA_DIR`.
 
 ## Layout and deployment option details
-There are two options for deploying content to the Tomcat Server within OpenShift. Both options
+There are two options for deploying content to the TomEE Server within OpenShift. Both options
 can be used together (i.e. build one archive from source and others pre-built)
 
 1) (Preferred) You can upload your content in a Maven src structure as is this sample project and on 
@@ -39,8 +39,8 @@ webapp contents to be rendered at `http://app_name-namespace.rhcloud.com/`.  If 
 Note: If you are building locally you'll also want to add any output wars under webapps 
 from the build to your `.gitignore` file.
 
-Note: If you are running scaled TOMCAT then you need an application deployed to the root context (i.e. 
-http://app_name-namespace.rhcloud.com/) for the HAProxy load-balancer to recognize that the TOMCAT instance 
+Note: If you are running scaled TOMEE then you need an application deployed to the root context (i.e. 
+http://app_name-namespace.rhcloud.com/) for the HAProxy load-balancer to recognize that the TOMEE instance 
 is active.
 
 or
@@ -78,9 +78,9 @@ automatically deployed into the server runtime.
 The Tomcat cartridge provides several environment variables to reference for ease
 of use:
 
-    OPENSHIFT_TOMEE_IP          The IP address used to bind TOMCAT
-    OPENSHIFT_TOMEE_HTTP_PORT   The TOMCAT listening port
-    OPENSHIFT_TOMEE_JPDA_PORT   The TOMCAT JPDA listening port
+    OPENSHIFT_TOMEE_IP          The IP address used to bind TOMEE
+    OPENSHIFT_TOMEE_HTTP_PORT   The TOMEE listening port
+    OPENSHIFT_TOMEE_JPDA_PORT   The TOMEE JPDA listening port
 
 For more information about environment variables, consult the
 [OpenShift Application Author Guide](https://github.com/openshift/origin-server/blob/master/node/README.writing_applications.md).
