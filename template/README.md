@@ -1,5 +1,5 @@
 The OpenShift `tomee` cartridge documentation can be found at:
-https://github.com/Filirom1/openshift-cartridge-tomee
+https://github.com/AtosWorldline/openshift-cartridge-tomee
 
 An example application can be found there:
 https://github.com/Filirom1/openshift-tomee-rest-example
