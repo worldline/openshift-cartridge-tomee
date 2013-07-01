@@ -110,9 +110,9 @@ Adding marker files to `.openshift/markers` will have the following effects:
 ## Download Tomcat 6 and Tomcat 7 and install them in `/opt/apache-tomcat-X.Y`
 
     $ cd /opt
-    $ wget http://repo1.maven.org/maven2/org/apache/openejb/apache-tomee/1.5.2/apache-tomee-1.5.2-jaxrs.tar.gz
-    $ tar xvzf apache-tomee-1.5.2-jaxrs.tar.gz
-    $ ln -s /opt/apache-tomee-jaxrs-1.5.2 /opt/apache-tomee-1.5
+    $ wget http://repo1.maven.org/maven2/org/apache/openejb/apache-tomee/1.5.1/apache-tomee-1.5.1-jaxrs.tar.gz
+    $ tar xvzf apache-tomee-1.5.1-jaxrs.tar.gz
+    $ ln -s /opt/apache-tomee-jaxrs-1.5.1 /opt/apache-tomee-1.5
 
 ## Test as a download cartridge
 
