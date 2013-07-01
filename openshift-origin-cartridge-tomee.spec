@@ -2,7 +2,7 @@
 
 Summary:       Provides TOMEE support
 Name:          openshift-origin-cartridge-tomee
-Version:       0.6.16
+Version:       0.6.17
 Release:       1%{?dist}
 Group:         Development/Languages
 License:       ASL 2.0
@@ -66,6 +66,9 @@ alternatives --set maven-3.0 /usr/share/maven
 %doc %{cartridgedir}/LICENSE
 
 %changelog
+* Mon Jul 01 2013 Filirom1 <Filirom1@gmail.com> 0.6.17-1
+- add maker skip_maven_build (Filirom1@gmail.com)
+
 * Mon Jul 01 2013 Filirom1 <Filirom1@gmail.com> 0.6.16-1
 - do not talk about maven build (Filirom1@gmail.com)
 - update README (Filirom1@gmail.com)
