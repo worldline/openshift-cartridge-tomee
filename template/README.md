@@ -1,3 +1,7 @@
-The OpenShift `tomcat` cartridge documentation can be found at:
+The OpenShift `tomee` cartridge documentation can be found at:
+https://github.com/Filirom1/openshift-cartridge-tomee
 
-https://github.com/openshift/origin-server/tree/master/cartridges/openshift-origin-cartridge-tomcat/README.md
+An example application can be found there:
+https://github.com/Filirom1/openshift-tomee-rest-example
+
+But the only thing to remember is to put your war in the `webapps` directory.
