@@ -2,7 +2,7 @@
 
 Summary:       Provides TOMEE support
 Name:          openshift-origin-cartridge-tomee
-Version:       0.6.19
+Version:       0.6.22
 Release:       1%{?dist}
 Group:         Development/Languages
 License:       ASL 2.0
@@ -66,6 +66,18 @@ alternatives --set maven-3.0 /usr/share/maven
 %doc %{cartridgedir}/LICENSE
 
 %changelog
+* Wed Jul 03 2013 Filirom1 <Filirom1@gmail.com> 0.6.22-1
+- add tomee6 (Filirom1@gmail.com)
+- unpack wars (Filirom1@gmail.com)
+
+* Wed Jul 03 2013 Filirom1 <Filirom1@gmail.com>
+- add tomee6 (Filirom1@gmail.com)
+- unpack wars (Filirom1@gmail.com)
+
+* Wed Jul 03 2013 Filirom1 <Filirom1@gmail.com>
+- add tomee6 (Filirom1@gmail.com)
+- unpack wars (Filirom1@gmail.com)
+
 * Mon Jul 01 2013 Filirom1 <Filirom1@gmail.com> 0.6.19-1
 - TomEE 1.5.1 is more stable than 1.5.2 (Filirom1@gmail.com)
 - s/Filirom1/AtosWorldline/g (Filirom1@gmail.com)
