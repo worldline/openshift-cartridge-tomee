@@ -5,7 +5,7 @@ Cartridge-Version: 0.0.1
 Display-Name: Tomee 1.5
 Description: "Apache TomEE 1.5 is an open source software implementation of the Java Servlet and JavaServer Pages technologies"
 Version: '1.5'
-Versions: ['1.5']
+Versions: ['1.5', '1.6']
 License: LGPL
 License-Url: http://www.gnu.org/copyleft/lesser.txt
 Vendor: apache
@@ -95,3 +95,24 @@ Endpoints:
     Private-Port:      8787
 Additional-Control-Actions:
     - threaddump
+Version-Overrides:
+  '1.6':
+    Display-Name: Tomee 1.6
+    Description: "Apache TomEE 1.6 is an open source software implementation of the Java Servlet and JavaServer Pages technologies"
+    Provides:
+      - "tomee-1.6"
+      - "tomee"
+      - "tomee(version) = 1.6.0"
+      - "tomee(version) >= 1.6"
+      - "tomee-1.6"
+      - "tomee-1.6.0"
+    Categories:
+      - service
+      - java
+      - tomcat
+      - tomee
+      - web_framework
+    Group-Overrides:
+      - components:
+        - "tomee-1.6"
+        - web_proxy
