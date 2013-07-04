@@ -2,7 +2,7 @@
 
 Summary:       Provides TOMEE support
 Name:          openshift-origin-cartridge-tomee
-Version:       0.6.22
+Version:       0.6.23
 Release:       1%{?dist}
 Group:         Development/Languages
 License:       ASL 2.0
@@ -66,6 +66,13 @@ alternatives --set maven-3.0 /usr/share/maven
 %doc %{cartridgedir}/LICENSE
 
 %changelog
+* Thu Jul 04 2013 Filirom1 <Filirom1@gmail.com> 0.6.23-1
+- Merge branch 'master' of https://github.com/AtosWorldline/openshift-
+  cartridge-tomee (Filirom1@gmail.com)
+- update ROOT.war (Filirom1@gmail.com)
+- update readme (loic.rodier@atos.net)
+- update README for TomEE 1.6 (Filirom1@gmail.com)
+
 * Wed Jul 03 2013 Filirom1 <Filirom1@gmail.com> 0.6.22-1
 - add tomee6 (Filirom1@gmail.com)
 - unpack wars (Filirom1@gmail.com)
