@@ -41,6 +41,8 @@ Git add/commit/push operations to take effect):
 
 Note: You can get the information in the uri above from running `rhc domain show`
 
+Note 2: To deploy at /, name your war ROOT.war
+
 If you have already committed large files to your Git repo, you rewrite or reset the history of those files in Git
 to an earlier point in time and then `git push --force` to apply those changes on the remote OpenShift server.  A 
 `git gc` on the remote OpenShift repo can be forced with (Note: tidy also does other cleanup including clearing log
