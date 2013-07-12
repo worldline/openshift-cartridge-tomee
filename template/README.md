@@ -1,7 +1,5 @@
 The OpenShift `tomee` cartridge documentation can be found at:
 https://github.com/AtosWorldline/openshift-cartridge-tomee
 
-An example application can be found there:
-https://github.com/Filirom1/openshift-tomee-rest-example
-
-But the only thing to remember is to put your war in the `webapps` directory.
+The source of the template application can be found here:
+https://github.com/AtosWorldline/openshift-default-tomee-app
