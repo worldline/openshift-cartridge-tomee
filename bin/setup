@@ -7,8 +7,27 @@ esac
 
 SYSTEM_TOMEE_DIR="/opt/apache-tomee-${version}"
 
+# if SYSTEM_TOMEE_DIR doesn't exists change it, to use a local tomcat
+if [ ! -d "$SYSTEM_TOMEE_DIR" ]; then
+  SYSTEM_TOMEE_DIR="${OPENSHIFT_DATA_DIR}/apache-tomee-${version}"
+  rm -fr "${SYSTEM_TOMEE_DIR}*"
+  pushd "${OPENSHIFT_DATA_DIR}"
+  if [ "${version}" == "1.5" ]; then
+    wget "http://repo1.maven.org/maven2/org/apache/openejb/apache-tomee/1.5.1/apache-tomee-1.5.1-jaxrs.tar.gz"
+    tar xvzf ${OPENSHIFT_DATA_DIR}/apache-tomee-1.5.1-jaxrs.tar.gz
+    rm -f ${OPENSHIFT_DATA_DIR}/apache-tomee-1.5.1-jaxrs.tar.gz
+    ln -s ${OPENSHIFT_DATA_DIR}/apache-tomee-jaxrs-1.5.1 ${OPENSHIFT_DATA_DIR}/apache-tomee-1.5
+  else
+    wget "https://repository.apache.org/content/groups/snapshots/org/apache/openejb/apache-tomee/1.6.0-SNAPSHOT/apache-tomee-1.6.0-20131020.041413-212-jaxrs.tar.gz"
+    tar xvzf ${OPENSHIFT_DATA_DIR}/apache-tomee-1.6.0-20131020.041413-212-jaxrs.tar.gz
+    rm -f ${OPENSHIFT_DATA_DIR}/apache-tomee-1.6.0-20131020.041413-212-jaxrs.tar.gz
+    ln -s ${OPENSHIFT_DATA_DIR}/apache-tomee-1.6.0-20131020.041413-212-jaxrs.tar.gz ${OPENSHIFT_DATA_DIR}/apache-tomee-1.6
+  fi
+  popd
+fi
+
 if [ ! -d ${SYSTEM_TOMEE_DIR} ]; then
-  echo "Couldn't find system tomcat dir at ${SYSTEM_TOMEE_DIR}" 1>&2
+  echo "Couldn't find system tomee dir at ${SYSTEM_TOMEE_DIR}" 1>&2
   exit 127
 fi
 
