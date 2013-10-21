@@ -68,7 +68,7 @@ For more information about environment variables, consult the
 
 ### Environment Variable Replacement Support
 
-The `tomcat` cart provides special environment variable replacement functionality for some of the Tomcat configuration files.
+The `tomee` cart provides special environment variable replacement functionality for some of the Tomcat configuration files.
 For the following configuration files:
 
   * `.openshift/config/server.xml`
@@ -89,7 +89,7 @@ resulting processed file is copied to the live Tomcat configuration directory.
 
 ## Cartridge Integrations
 
-The `tomcat` cart has out-of-the-box integration support with the RedHat `postgresql` and `mysql` cartridges. The default
+The `tomee` cart has out-of-the-box integration support with the RedHat `postgresql` and `mysql` cartridges. The default
 `tomee.xml` contains two basic JDBC `Resource` definitions, `jdbc/MysqlDS` and `jdbc/PostgreSQLDS`, which will be automatically
 configured to work with their respective cartridges if installed into your application.
 
@@ -109,7 +109,7 @@ Adding marker files to `.openshift/markers` will have the following effects:
  
     $ yum install bc java-1.6.0-openjdk-devel java-1.7.0-openjdk-devel
 
-## Download Tomcat 6 and Tomcat 7 and install them in `/opt/apache-tomcat-X.Y`
+## Download TomEE 1.5 and TomEE 1.6 and install them in `/opt/apache-tomee-X.Y`
 
     $ cd /opt
     $ wget http://repo1.maven.org/maven2/org/apache/openejb/apache-tomee/1.5.1/apache-tomee-1.5.1-jaxrs.tar.gz
