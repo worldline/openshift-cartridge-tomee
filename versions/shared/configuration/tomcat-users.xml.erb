@@ -39,4 +39,6 @@ For security reasons, no username in the default Realm (i.e. using conf/tomcat-u
   <user username="both" password="tomcat" roles="tomcat,role1"/>
   <user username="role1" password="tomcat" roles="role1"/>
 -->
+  <role rolename="cluster"/>
+  <user username="cluster" password="<%= ENV['OPENSHIFT_SECRET_TOKEN'] %>" roles="cluster"/>
 </tomcat-users>

@@ -59,9 +59,11 @@ automatically deployed into the server runtime.
 The Tomcat cartridge provides several environment variables to reference for ease
 of use:
 
-    OPENSHIFT_TOMEE_IP          The IP address used to bind TOMEE
-    OPENSHIFT_TOMEE_HTTP_PORT   The TOMEE listening port
-    OPENSHIFT_TOMEE_JPDA_PORT   The TOMEE JPDA listening port
+    OPENSHIFT_TOMEE_IP                   The IP address used to bind TOMEE
+    OPENSHIFT_TOMEE_HTTP_PORT            The TOMEE listening port
+    OPENSHIFT_TOMEE_CLUSTER_PORT         The listening private port used for clustering
+    OPENSHIFT_TOMEE_CLUSTER_PROXY_PORT   The public port used for clustering
+    OPENSHIFT_TOMEE_JPDA_PORT            The TOMEE JPDA listening port
 
 For more information about environment variables, consult the
 [OpenShift Application Author Guide](https://github.com/openshift/origin-server/blob/master/node/README.writing_applications.md).
@@ -72,6 +74,7 @@ The `tomee` cart provides special environment variable replacement functionality
 For the following configuration files:
 
   * `.openshift/config/server.xml`
+  * `.openshift/config/server.xml.cluster`
   * `.openshift/config/context.xml`
 
 Ant-style environment replacements are supported for all `OPENSHIFT_`-prefixed environment variables in the application. For
@@ -86,14 +89,6 @@ example, the following replacements are valid in `server.xml`:
 During server startup, the configuration files in the source repository are processed to replace `OPENSHIFT_*` values, and the
 resulting processed file is copied to the live Tomcat configuration directory.
 
-
-## Cartridge Integrations
-
-The `tomee` cart has out-of-the-box integration support with the RedHat `postgresql` and `mysql` cartridges. The default
-`tomee.xml` contains two basic JDBC `Resource` definitions, `jdbc/MysqlDS` and `jdbc/PostgreSQLDS`, which will be automatically
-configured to work with their respective cartridges if installed into your application.
-
-
 ## Markers
 
 Adding marker files to `.openshift/markers` will have the following effects:
@@ -104,6 +99,23 @@ Adding marker files to `.openshift/markers` will have the following effects:
     
     java7                Will run Tomcat with Java7 if present. If no marker is present
                          then the baseline Java version will be used (currently Java6)
+
+## Clustering
+
+[Tomcat clustering](http://tomcat.apache.org/tomcat-7.0-doc/cluster-howto.html) is not enable by default.
+To enable it, use the `server.xml.cluster`:
+
+    cp .openshift/config/server.xml.cluster .openshift/config/server.xml
+    git commit -am "use tomcat clustering"
+    git push
+
+Now restart your tomcat.
+
+To run session replication in the `tomee` cart, the following steps should be completed:
+* All your session attributes must implement `java.io.Serializable`
+* Make sure your web.xml has the <distributable/> element
+
+Clustering is done thanks to <https://github.com/rmannibucau/dynamic-tomcat-cluster>.
 
 ## Install system dependecies
  

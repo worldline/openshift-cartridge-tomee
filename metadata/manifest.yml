@@ -63,6 +63,8 @@ Publishes:
     Type: "NET_TCP:httpd-proxy-info"
   publish-gear-endpoint:
     Type: "NET_TCP:gear-endpoint-info"
+  publish-tomcat-cluster:
+      Type: "ENV:NET_TCP:tomcat-cluster"
 Subscribes:
   set-db-connection-info:
     Type: "ENV:NET_TCP:db:connection-info"
@@ -74,6 +76,9 @@ Subscribes:
     Type: "NET_TCP:jdbc"
   set-generic-java:
     Type: "ENV:NET_TCP:generic-java"
+  set-tomcat-cluster:
+    Type: "ENV:NET_TCP:tomcat-cluster"
+    Required : false
 Group-Overrides:
   - components:
     - "tomee-1.5"
@@ -93,6 +98,10 @@ Endpoints:
   - Private-IP-Name:   IP
     Private-Port-Name: JPDA_PORT
     Private-Port:      8787
+  - Private-IP-Name:   IP
+    Private-Port-Name: CLUSTER_PORT
+    Private-Port:      4000
+    Public-Port-Name:  CLUSTER_PROXY_PORT
 Additional-Control-Actions:
     - threaddump
 Version-Overrides:
