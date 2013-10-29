@@ -109,7 +109,6 @@ To enable it, use the `server.xml.cluster`:
     git commit -am "use tomcat clustering"
     git push
 
-Now restart your tomcat.
 
 To run session replication in the `tomee` cart, the following steps should be completed:
 * All your session attributes must implement `java.io.Serializable`
