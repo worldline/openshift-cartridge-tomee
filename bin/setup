@@ -26,7 +26,7 @@ if [ ! -d "$SYSTEM_TOMEE_DIR" ]; then
   popd
 fi
 
-if [ ! -d ${SYSTEM_TOMEE_DIR} ]; then
+if [ ! -e ${SYSTEM_TOMEE_DIR} ]; then
   echo "Couldn't find system tomee dir at ${SYSTEM_TOMEE_DIR}" 1>&2
   exit 127
 fi
@@ -42,9 +42,7 @@ ln -sf ${SYSTEM_TOMEE_DIR}/bin/bootstrap.jar ${OPENSHIFT_TOMEE_DIR}/bin/bootstra
 ln -sf ${SYSTEM_TOMEE_DIR}/bin/commons-daemon.jar ${OPENSHIFT_TOMEE_DIR}/bin/commons-daemon.jar
 ln -sf ${SYSTEM_TOMEE_DIR}/bin/tomcat-juli.jar ${OPENSHIFT_TOMEE_DIR}/bin/tomcat-juli.jar
 
-# Need to remove link -f gets confused as this is a link to a link
-[ -e ${OPENSHIFT_TOMEE_DIR}/lib ] && rm ${OPENSHIFT_TOMEE_DIR}/lib
-ln -sf ${SYSTEM_TOMEE_DIR}/lib ${OPENSHIFT_TOMEE_DIR}/lib
+ln -sf ${SYSTEM_TOMEE_DIR}/lib/* ${OPENSHIFT_TOMEE_DIR}/lib
 
 # Link the user-controlled configurations to the Tomcat conf directory
 ln -sf ${OPENSHIFT_REPO_DIR}/.openshift/config/web.xml ${OPENSHIFT_TOMEE_DIR}/conf

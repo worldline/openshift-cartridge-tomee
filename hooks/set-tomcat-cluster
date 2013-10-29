@@ -1,0 +1,76 @@
+#!/usr/bin/env node
+
+var fs = require('fs');
+var http = require('http');
+var logFile = fs.createWriteStream(process.env.OPENSHIFT_TOMEE_LOG_DIR + '/cluster-hook.log', { flags: 'a' });
+
+// Argv example
+// 52664d3b67c9895f0900012a rphilibert '52664cc167c9893a0a0003bb'='cluster-rphilibert.apps.zone52.org:53587;' '52664e1667c9 893a0a0003df'='52664e1667c9893a0a0003df-rphilibert.apps.zone52.org:42627;' '52664fac67c9893a0a000405'='52664fac67c9893a0a000405-rphilibert.apps.zone52.org:35692;' '52664d3b67c9895f0900012a'='52664d3b67c9895f0900012a-rphilibert.apps.zone52.org:61027;'
+
+
+var uuid = process.env.OPENSHIFT_GEAR_UUID;
+var namespace = process.argv[3];
+var cluster =  process.argv[4].split(' ');
+
+function log(msg){
+  logFile.write(msg + '\n')
+}
+
+log(process.argv.join(' '))
+
+var result = [];
+cluster.forEach(function(member){
+  member = member.replace(/;/, '').replace(/'/g, '');
+  var memberArr = member.split('=');
+  if(memberArr.length != 2) return log('WARN : ' + member);
+
+  var memberUuid = memberArr[0];
+  if(memberUuid == uuid) return;
+
+  var socketArr = memberArr[1].split(':');
+  if(socketArr.length != 2) return log('WARN : ' + member);
+
+  var ip = socketArr[0];
+  if(!ip) return log('WARN : ' + member);
+
+  var port = socketArr[1];
+  if(!port) return log('WARN : ' + member);
+
+  result.push(ip + ':' + port);
+});
+
+var count = 0;
+function send(){
+  count++;
+  var username = 'cluster';
+  var password = process.env.OPENSHIFT_SECRET_TOKEN || '';
+  var req = http.request({
+    hostname: process.env.OPENSHIFT_TOMEE_IP,
+    port: process.env.OPENSHIFT_TOMEE_HTTP_PORT,
+    path: '/rmannibucau-tomcat-monitor/controller',
+    method: 'POST',
+    auth: username + ':' + password
+  }, function(res){
+    res.setEncoding('utf8');
+    res.on('data', function(data){
+      logFile.write(data);
+    });
+    res.on('end', function(data){
+      logFile.write('\n');
+    });
+  });
+  req.on('error', function(e){
+    if(count < 50){
+      log('retry');
+      setTimeout(send, 5000);
+    }else{
+      log(e.message);
+    }
+  });
+  log('SEND');
+  log(result.join('\n'));
+  req.write(result.join('\n'));
+  req.end();
+}
+
+send();
