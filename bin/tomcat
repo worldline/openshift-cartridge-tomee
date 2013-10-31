@@ -71,8 +71,8 @@ for conf_file in "${replacement_conf_files[@]}"; do
 done
 
 # Add OpenEJB javaagent
-if [ -r "$CATALINA_HOME"/lib/openejb-javaagent.jar ]; then
-  JAVA_OPTS=""-javaagent:$CATALINA_HOME/lib/openejb-javaagent.jar" $JAVA_OPTS"
+if [ -r "${CATALINA_HOME}/lib/openejb-javaagent.jar" ]; then
+  JAVA_OPTS=""-javaagent:${CATALINA_HOME}/lib/openejb-javaagent.jar" $JAVA_OPTS"
 fi
 
 # Control the Tomcat instance

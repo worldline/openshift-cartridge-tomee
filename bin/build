@@ -20,6 +20,16 @@ if `echo $OPENSHIFT_GEAR_DNS | egrep -qe "\.rhcloud\.com"`; then
   fi
 fi
 
+echo "Cleaning 'work' and 'conf/<ENGINE NAME>' dir"
+rm -fr "${OPENSHIFT_TOMEE_DIR}work"
+
+for i in $(grep '<Engine' "${OPENSHIFT_TOMEE_DIR}conf/server.xml" | sed 's/.*name="\([^"]*\)".*/\1/'); do 
+  name="${OPENSHIFT_TOMEE_DIR}conf/$i"
+  if [ -d "$name" ]; then 
+    rm -fr "$name"
+  fi 
+done
+
 if [ ! -f ${OPENSHIFT_REPO_DIR}pom.xml ]; then
   echo "Skipping Maven build due to absence of pom.xml"
   exit 0
