@@ -70,6 +70,11 @@ for conf_file in "${replacement_conf_files[@]}"; do
   sed ${sed_replace_env} ${OPENSHIFT_REPO_DIR}/.openshift/config/${conf_file} > ${OPENSHIFT_TOMEE_DIR}/conf/${conf_file}
 done
 
+# Add OpenEJB javaagent
+if [ -r "$CATALINA_HOME"/lib/openejb-javaagent.jar ]; then
+  JAVA_OPTS=""-javaagent:$CATALINA_HOME/lib/openejb-javaagent.jar" $JAVA_OPTS"
+fi
+
 # Control the Tomcat instance
 if [ "$1" = "start" ]; then
   ${JAVACMD} $JAVA_OPTS $LOGGING_CONFIG $CATALINA_OPTS \
