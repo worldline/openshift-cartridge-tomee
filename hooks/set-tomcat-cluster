@@ -44,10 +44,11 @@ function send(){
   count++;
   var username = 'cluster';
   var password = process.env.OPENSHIFT_SECRET_TOKEN || '';
+  var url = '/rmannibucau-tomcat-monitor/controller';
   var req = http.request({
     hostname: process.env.OPENSHIFT_TOMEE_IP,
     port: process.env.OPENSHIFT_TOMEE_HTTP_PORT,
-    path: '/rmannibucau-tomcat-monitor/controller',
+    path: url,
     method: 'POST',
     auth: username + ':' + password
   }, function(res){
@@ -67,7 +68,7 @@ function send(){
       log(e.message);
     }
   });
-  log('SEND');
+  log('POST ' + process.env.OPENSHIFT_TOMEE_IP + ':' + process.env.OPENSHIFT_TOMEE_HTTP_PORT + url);
   log(result.join('\n'));
   req.write(result.join('\n'));
   req.end();
