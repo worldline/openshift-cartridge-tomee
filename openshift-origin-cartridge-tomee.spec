@@ -2,7 +2,7 @@
 
 Summary:       Provides TOMEE support
 Name:          openshift-origin-cartridge-tomee
-Version:       0.6.26
+Version:       0.6.27
 Release:       1%{?dist}
 Group:         Development/Languages
 License:       ASL 2.0
@@ -66,6 +66,13 @@ alternatives --set maven-3.0 /usr/share/maven
 %doc %{cartridgedir}/LICENSE
 
 %changelog
+* Thu Oct 31 2013 Filirom1 <Filirom1@gmail.com> 0.6.27-1
+- clean work and conf/<ENGINE NAME> (Filirom1@gmail.com)
+- Add OpenEJB javaagent (Filirom1@gmail.com)
+- fix tab (filirom1@gmail.com)
+- doc remove restart tomcat after git push, it's already done
+  (filirom1@gmail.com)
+
 * Tue Oct 29 2013 Filirom1 <Filirom1@gmail.com> 0.6.26-1
 - add cluster (Filirom1@gmail.com)
 
