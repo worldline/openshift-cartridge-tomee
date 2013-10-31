@@ -64,7 +64,7 @@ Publishes:
   publish-gear-endpoint:
     Type: "NET_TCP:gear-endpoint-info"
   publish-tomcat-cluster:
-      Type: "ENV:NET_TCP:tomcat-cluster"
+    Type: "ENV:NET_TCP:tomcat-cluster"
 Subscribes:
   set-db-connection-info:
     Type: "ENV:NET_TCP:db:connection-info"
